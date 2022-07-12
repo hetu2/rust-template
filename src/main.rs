@@ -4,5 +4,5 @@ fn main() {
 }
 
 fn first_function(p: &str) -> &str {
-    return p;
+    p
 }
