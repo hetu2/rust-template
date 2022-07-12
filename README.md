@@ -9,3 +9,6 @@ Run:
 
 ```docker run -it my-rust-app ```
 
+Local build & run
+
+```cargo build && ./target/debug/rusting```
