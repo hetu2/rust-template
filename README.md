@@ -2,13 +2,18 @@
 
 Build: 
 
-```docker build -t my-rust-app . ```
+```docker build -t rusting . ```
 
 
 Run: 
 
-```docker run -it my-rust-app ```
+```docker run -it rusting ```
 
-Local build & run
+or both
 
-```cargo build && ./target/debug/rusting```
+```docker build -t rusting . &&  docker run -it rusting ``` 
+
+
+Local run
+
+```cargo run```
