@@ -1,9 +1,19 @@
-fn main() {
-    let test = first_function("rock n roll");
-    println!("{}", test);
-    // panic!("testing panic");
+#[macro_use]
+extern crate rocket;
+
+#[get("/")]
+fn index() -> &'static str {
+    "Hello, wtf!"
 }
 
-fn first_function(p: &str) -> &str {
-    p
+#[get("/")]
+fn foo() -> &'static str {
+    "bar!"
+}
+
+#[launch]
+fn rocket() -> _ {
+    rocket::build()
+        .mount("/", routes![index])
+        .mount("/foo", routes![foo])
 }

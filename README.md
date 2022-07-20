@@ -1,17 +1,17 @@
 # Babys first rust project
 
-Build: 
+Docker build: 
 
 ```docker build -t rusting . ```
 
 
-Run: 
+Docker run: 
 
-```docker run -it rusting ```
+```docker run -p 8000:8000 -it rusting  ```
 
 or both
 
-```docker build -t rusting . &&  docker run -it rusting ``` 
+```docker build -t rusting . &&  docker run -p 8000:8000 -it rusting``` 
 
 
 Local run
