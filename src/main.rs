@@ -1,4 +1,5 @@
 mod hello;
+mod list;
 #[macro_use]
 extern crate rocket;
 
@@ -17,4 +18,5 @@ fn rocket() -> _ {
     rocket::build()
         .mount("/", routes![index])
         .mount("/foo", routes![foo])
+        .mount("/list",routes![list::print, list::put_item])
 }
