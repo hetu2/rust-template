@@ -1,9 +1,10 @@
+mod hello;
 #[macro_use]
 extern crate rocket;
 
 #[get("/")]
 fn index() -> &'static str {
-    "Hello, wtf!"
+   return hello::print_hello();
 }
 
 #[get("/")]

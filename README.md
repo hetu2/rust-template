@@ -17,3 +17,7 @@ or both
 Local run
 
 ```cargo run```
+
+Local run with watch
+
+```  cargo watch -x "run"  ```
