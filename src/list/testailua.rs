@@ -1,5 +1,7 @@
 use super::Person;
 
+static mut STATE: Vec<String> = Vec::new();
+
 pub fn get() -> Person {
     let name = String::from("Peter");
     let age = 27;
@@ -10,10 +12,8 @@ pub fn get() -> Person {
 
 pub fn put_item(new_item: String) -> Vec<String> {
     let item = String::from(new_item);
-    let mut arr = Vec::new();
-
-    let item2 = item.clone();
-    arr.push(item);
-    arr.push(item2);
-    return arr;
+    unsafe {
+        STATE.push(item);
+        return STATE.clone();
+    }
 }
