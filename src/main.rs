@@ -5,7 +5,7 @@ extern crate rocket;
 
 #[get("/")]
 fn index() -> &'static str {
-   return hello::print_hello();
+    return hello::print_hello();
 }
 
 #[get("/")]
@@ -18,5 +18,5 @@ fn rocket() -> _ {
     rocket::build()
         .mount("/", routes![index])
         .mount("/foo", routes![foo])
-        .mount("/list",routes![list::print, list::put_item])
+        .mount("/list", routes![list::print, list::put_item])
 }
