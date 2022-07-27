@@ -18,5 +18,5 @@ fn rocket() -> _ {
     rocket::build()
         .mount("/", routes![index])
         .mount("/foo", routes![foo])
-        .mount("/list", routes![list::print, list::put_item])
+        .mount("/list", routes![list::print, list::put_item, list::put_post])
 }
