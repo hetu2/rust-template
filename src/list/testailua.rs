@@ -65,3 +65,14 @@ fn randomizer() -> String {
         .map(char::from)
         .collect();
 }
+
+#[cfg(test)]
+mod testailua_tests {
+    use super::*;
+
+    #[test]
+    fn randomizer_get() {
+        let r = randomizer();
+        assert_eq!(r.len(), 6);
+    }
+}
