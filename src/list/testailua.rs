@@ -1,3 +1,5 @@
+use rand::distributions::Alphanumeric;
+use rand::{thread_rng, Rng};
 use std::time::SystemTime;
 
 use super::Person;
@@ -27,6 +29,7 @@ pub fn put_post(message: String, title: String) -> Vec<Post> {
     let now = SystemTime::now();
 
     let post = Post {
+        id: get_id(),
         message: message.to_string(),
         title: title.to_string(),
         time: now,
@@ -36,4 +39,29 @@ pub fn put_post(message: String, title: String) -> Vec<Post> {
         MESSAGES.push(post);
         return MESSAGES.clone();
     }
+}
+
+fn get_id() -> String {
+    let id = loop {
+        let rand_string: String = randomizer();
+
+        unsafe {
+            let is_used = MESSAGES.iter().find(|&r| r.id == rand_string.to_string());
+
+            if is_used.is_none() {
+                break rand_string;
+            }
+        }
+    };
+
+    return id;
+}
+
+fn randomizer() -> String {
+    let string_length: usize = 6;
+    return thread_rng()
+        .sample_iter(&Alphanumeric)
+        .take(string_length)
+        .map(char::from)
+        .collect();
 }

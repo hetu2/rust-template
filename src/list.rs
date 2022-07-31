@@ -1,3 +1,4 @@
+use std::fmt::Debug;
 use std::time::SystemTime;
 
 use rocket::serde::{json::Json, Serialize};
@@ -13,11 +14,12 @@ pub struct Person {
 
 #[derive(Serialize)]
 #[serde(crate = "rocket::serde")]
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub struct Post {
     message: String,
     title: String,
     time: SystemTime,
+    id: String,
 }
 
 #[get("/")]
